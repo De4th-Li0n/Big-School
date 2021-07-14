@@ -31,8 +31,11 @@ namespace BigSchool.Models
         [Column(Order = 4)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CategoryId { get; set; }
+
         public string Name;
 
         public List<Category> ListCategory = new List<Category>();
+        public virtual Category Category { get; set; }
+
     }
 }

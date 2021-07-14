@@ -14,7 +14,7 @@ namespace BigSchool.Controllers
         public ActionResult Index()
         {
             BigSchoolContext context = new BigSchoolContext();
-            var upcomingcourse = context.Courses.Where(p => p.Datetime > DateTime.Now).OrderBy(p => p.Datetime).ToList();
+            var upcomingcourse = context.Courses.Where(p => p.Datetime > Datetime.Now).OrderBy(p => p.Datetime).ToList();
             foreach(Course i in upcomingcourse)
             {
                 ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LeturerId);
