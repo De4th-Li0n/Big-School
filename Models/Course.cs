@@ -35,7 +35,7 @@ namespace BigSchool.Models
         public string Name;
 
         public List<Category> ListCategory = new List<Category>();
-        public virtual Category Category { get; set; }
+        
 
     }
 }
