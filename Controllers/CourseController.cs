@@ -9,14 +9,16 @@ using System.Web.Mvc;
 
 namespace BigSchool.Controllers
 {
-    public class CoursesController : Controller
+    public class CourseController : Controller
     {
-        // GET: Courses
+        // GET: Course
         public ActionResult Create()
         {
+            //get list category
             BigSchoolContext context = new BigSchoolContext();
             Course objCourse = new Course();
             objCourse.ListCategory = context.Categories.ToList();
+
             return View(objCourse);
         }
 
@@ -37,7 +39,7 @@ namespace BigSchool.Controllers
 
             //Lấy login user ID
             ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(System.Web.HttpContext.Current.User.Identity.GetUserId());
-            objCourse.LeturerId = user.Id;
+            objCourse.LecturerId = user.Id;
 
             //add vào csdl
             context.Courses.Add(objCourse);

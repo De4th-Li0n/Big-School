@@ -14,13 +14,14 @@ namespace BigSchool.Controllers
         public ActionResult Index()
         {
             BigSchoolContext context = new BigSchoolContext();
-            var upcomingcourse = context.Courses.Where(p => p.Datetime > DateTime.Now).OrderBy(p => p.Datetime).ToList();
-            foreach(Course i in upcomingcourse)
+            var upcomingcourse = context.Courses.Where(p => p.DateTime > DateTime.Now).OrderBy(p => p.DateTime).ToList();
+            foreach (Course i in upcomingcourse)
             {
-                ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LeturerId);
+                ApplicationUser user = System.Web.HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>().FindById(i.LecturerId);
                 i.Name = user.Name;
             }
             return View(upcomingcourse);
+            
         }
 
         public ActionResult About()

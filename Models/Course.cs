@@ -9,33 +9,28 @@ namespace BigSchool.Models
     [Table("Course")]
     public partial class Course
     {
-        [Key]
-        [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Id { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        public string LeturerId { get; set; }
+        [Required]
+        [StringLength(128)]
+        public string LecturerId { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
+        [Required]
         [StringLength(255)]
         public string Place { get; set; }
 
-        [Key]
-        [Column(Order = 3)]
-        public DateTime Datetime { get; set; }
+        public DateTime DateTime { get; set; }
 
-        [Key]
-        [Column(Order = 4)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CategoryId { get; set; }
+
+        //add list Category
 
         public string Name;
 
+        public virtual Category Category { get; set; }
+
         public List<Category> ListCategory = new List<Category>();
-        
 
     }
 }

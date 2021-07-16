@@ -17,6 +17,7 @@ namespace BigSchool.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+           
         }
     }
 }

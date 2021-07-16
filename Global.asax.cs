@@ -12,6 +12,7 @@ namespace BigSchool
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+
         protected void Application_Start()
         {
             Database.SetInitializer<ApplicationDbContext>(null);
